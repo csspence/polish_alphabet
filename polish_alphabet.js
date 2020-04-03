@@ -19,6 +19,26 @@ For example:
 "Jędrzej Błądziński"  -->  "Jedrzej Bladzinski"
 */
 
-function correctPolishLetters (string) {
-  // your code
+const correctPolishLetters = (string) => {
+  let newStr = '';
+  const translate = {
+    'ą' : 'a',
+    'ć' : 'c',
+    'ę' : 'e',
+    'ł' : 'l',
+    'ń' : 'n',
+    'ó' : 'o',
+    'ś' : 's',
+    'ź' : 'z',
+    'ż' : 'z'
+  }
+  for(let i = 0; i < string.length; i++) {
+    if(translate[string[i]] !== undefined) {
+      newStr += translate[string[i]];
+      continue;
+    }
+    newStr += string[i];
+  }
+
+  return newStr;
 }
